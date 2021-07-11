@@ -1,30 +1,28 @@
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import {Route, Switch} from "react-router-dom";
 import './App.css';
-import { useState, useEffect } from 'react';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Home from "./Pages/HomePage";
+import Survey from "./Pages/QuestionPage";
+import Result from "./Pages/ResultPage";
 
-const API_URL = "https://opentdb.com/api.php?amount=10&category=28&type=multiple";
+import React, { Component } from 'react'
 
-function App() {
+ class App extends Component {
+  render() {
+    return (
+      <>
 
-  const [question, setQuestions] = useState([])
-
-  useEffect(() => {
-    fetch(API_URL)
-    .then((res) => res.json())
-    .then((data) => {
-      setQuestions(data.results);
-    });
-  }, [])
-  console.log(question)
-  return (
-    <>
-    <Navbar/>
-    Hellooooooo from App
+      <Navbar/>
+    <Switch>
+      <Route path="/" exact component={Home}/>
+      <Route path="/survey" component={Survey}/>
+      <Route path="/result"  component={Result}/>
+    </Switch>
     <Footer/>
-    </>
-  );
+      </>
+    );
+  }
 }
-
 export default App;
