@@ -8,7 +8,7 @@ export default function HomePage() {
         <>
          <Helper max ="true" title="CarSmart Survey" >
             <Link to="/survey" 
-            className="main-link" style={{margin: "2rem"}}> 
+            className ="main-link" style={{margin: "2rem"}}> 
             take the survey 
             </Link>
           </Helper>
