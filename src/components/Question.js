@@ -1,42 +1,65 @@
 import React from 'react';
-import PersonalInfo from "./PersonInfo";
-import Title from "./Title";
+import styled from "styled-components";
 
-export default function Question() {
+export default function Question({ id, text, ans }) {
+    const { A, B, C, D } = ans
     return (
-        
-        <section>
-            <div className="container">
-        <div className="row">
-            <div className= "col-10 mx-auto col-md-6 my-3">
-                <form className="py-3">
-                    <div className="form-group" className="my-2">
-                    <Title title="survey" my-5/>
-                    <input type="text" 
-                    name="fulltname" 
-                    placeholder="fullname"
-                    className="form-control"/>  
-                    </div>  
-                   <div className="form-group" className="my-2">
-                    <input type="email" 
-                    name="email" 
-                    placeholder="email"
-                    className="form-control"/>   
+        <QuestionWrapper>
+            <div className="card">
+                <div className="question-no"><h4>Question no.{id}</h4></div>
+                <div className="question">
+                    <p>
+                        {text}
+                    </p>
+                </div>
+                <div className="answers">
+                    <div className="answer-options">
+                        <p>A. {A} </p>
+                        <p>B. {B} </p>
+                        <p>C. {C} </p>
+                        <p>D. {D} </p>
                     </div>
-                    <div className="container">
-
-                    </div>
-                    <div form-group mt-3>
-                            <input
-                            type="submit"
-                            value="send"
-                            className="form-control bg-primary text-white"
-                            />
-                        </div>
-                </form>
+                </div>
             </div>
-        </div>
-        </div>
-    </section>
+        </QuestionWrapper>
     )
 }
+
+const QuestionWrapper = styled.div`
+.card{
+    padding: 6px;
+    border-radius: 20px;
+}
+.question-no{
+    margin-left: 9px;
+}
+.question{
+    margin-left: 9px;
+}
+.answers{
+    background-color: lightgray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 6px;
+    border-radius: 20px;
+}
+.answer-options{
+    margin-top: 9px;
+    >p{
+        padding: 5px;
+        color: blueviolet;
+        font-weight: 700;
+        margin-left: 9px;
+        margin-right: 9px;
+        background-color: whitesmoke;
+    }
+    >p:hover{
+        padding: 9px;
+        background-color: slategrey;
+        color: white;
+    }
+
+}
+
+
+`

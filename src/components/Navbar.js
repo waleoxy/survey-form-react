@@ -1,26 +1,16 @@
 import React from 'react';
 import styled from "styled-components";
-import{SurveyConsumer} from "../context/context";
 import logo from "../components/images/logo.png"
 
 
 export default function Navbar() {
 
     return (
-        <SurveyConsumer>
-            {
-                value =>{
-
-                    return(
-                        <NavWrapper>
-                            <div className="nav-center">
-                                <img src={logo} alt="carsmart logo"/>                    
-                             </div>
-                        </NavWrapper>
-                    )
-                }
-            }
-        </SurveyConsumer>
+        <NavWrapper>
+            <div className="nav-center">
+                <img src={logo} alt="carsmart logo" />
+            </div>
+        </NavWrapper>
     )
 }
 
