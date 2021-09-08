@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import Question from "./Question";
-import { db } from "../firebase"
+import { db } from "../firebase.js"
 
 export default function QuestionList() {
   const [questions, setQuestions] = useState([]);
